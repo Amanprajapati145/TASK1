@@ -18,10 +18,7 @@ app.use(express.json());         //convert the data in json format
 app.use(express.urlencoded({ extended: false }));
 
 // middle ware who will handle the request from the frontend 
-app.use(cors());
-git commit -m "first commit"
-
-// Manual middleware example
+app.use(cors());// Manual middleware example
 app.use((req, res, next) => {
   console.log(`Request Method: ${req.method}, Path: ${req.path}`);
   next();
