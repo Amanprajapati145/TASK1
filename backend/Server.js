@@ -1,12 +1,3 @@
-import mongoose from "mongoose";
-import dotenv from "dotenv";
-
-dotenv.config();
-
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("✅ MongoDB connected successfully"))
-  .catch((err) => console.log("❌ MongoDB connection error:", err));
-
 // Step-1: Required modules
 const express = require("express");
 const mongoose = require("mongoose");
@@ -18,7 +9,7 @@ const app = express();
 
 // Step-3: Connect MongoDB
 mongoose
-  .connect("mongodb://127.0.0.1:27017/rest_assignment")
+  .connect("mongodb+srv://Amanprajapati21:<Aman2004>@cluster0.pehfaxh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log("MongoDB Connection Error:", err));
 
