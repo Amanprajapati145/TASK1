@@ -19,6 +19,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // middle ware who will handle the request from the frontend 
 app.use(cors());
+git commit -m "first commit"
 
 // Manual middleware example
 app.use((req, res, next) => {
