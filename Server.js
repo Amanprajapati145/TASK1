@@ -2,6 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const fs = require("fs");
+const cors = require("cors")
 
 // Step-2: Create express app
 const app = express();
@@ -13,8 +14,11 @@ mongoose
   .catch((err) => console.log("MongoDB Connection Error:", err));
 
 // Step-4: Middlewares
-app.use(express.json());         //convert the data in json foemay
+app.use(express.json());         //convert the data in json format
 app.use(express.urlencoded({ extended: false }));
+
+// middle ware who will handle the request from the frontend 
+app.use(cors());
 
 // Manual middleware example
 app.use((req, res, next) => {
@@ -108,7 +112,7 @@ app.delete("/api/admin/:id", async (req, res) => {
 });
 
 // ---------------------------------------------------------------------------
-// 🧑‍🏫 TRAINER COLLECTION
+// TRAINER COLLECTION
 // ---------------------------------------------------------------------------
 
 // Step-8: Trainer Schema
