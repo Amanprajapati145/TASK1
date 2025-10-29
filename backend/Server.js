@@ -1,15 +1,23 @@
-// Step-1: Required modules
-const express = require("express");
+// Import dependencies
 const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+const express = require("express");
 const fs = require("fs");
-const cors = require("cors")
+const cors = require("cors");
+require('dotenv').config();
 
 // Step-2: Create express app
 const app = express();
 
 // Step-3: Connect MongoDB
+// mongoose
+//   .connect("mongodb://127.0.0.1:27017/")
+//   .then(() => console.log("MongoDB Connected..."))
+//   .catch((err) => console.log("MongoDB Connection Error:", err));
+
 mongoose
-  .connect("mongodb+srv://Amanprajapati21:<Aman2004>@cluster0.pehfaxh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+  .connect(process.env.MONGODB_URI, {
+   })
   .then(() => console.log("MongoDB Connected..."))
   .catch((err) => console.log("MongoDB Connection Error:", err));
 
@@ -198,3 +206,6 @@ app.get("/", (req, res) => {
 app.listen(8000, () => {
   console.log("Server started on port 8000");
 });
+
+
+
